@@ -7,6 +7,8 @@ on:
   pull_request:
     branches:
       - release/sit
+  schedule:
+    - cron: '0 */3 * * *'  # every 3 hours
  
 jobs:
   build:
@@ -25,23 +27,17 @@ jobs:
         cache: 'npm'
  
     - name: Install Dependencies
-      run: |
-        echo "Installing with npm..."
-        npm install
+      run: npm install
  
     - name: Build Project
-      run: |
-        echo "Running npm build..."
-        npm run build
+      run: npm run build
  
-    - name: Package Build
+    - name: Archive Build Output
       run: |
-        echo "Creating package.zip..."
-        zip -r package.zip . -x '*.git*'
+zip -r package.zip . -x '*.git*' 'node_modules/*' '*.github*'
  
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: package
-        path: package.zip
- 
+        name: legal-kill-package
+path: package.zip
