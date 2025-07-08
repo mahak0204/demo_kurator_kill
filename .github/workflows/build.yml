@@ -34,10 +34,10 @@ jobs:
  
     - name: Archive Build Output
       run: |
-zip -r package.zip . -x '*.git*' 'node_modules/*' '*.github*'
+       zip -r package.zip . -x '*.git*' 'node_modules/*' '*.github*'
  
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
         name: legal-kill-package
-path: package.zip
+        path: package.zip
