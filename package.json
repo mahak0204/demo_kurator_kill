@@ -1,0 +1,13 @@
+{
+  "name": "legal-kill-plugin",
+  "version": "1.0.0",
+  "description": "Kurator Legal Kill plugin for packaging and deployment",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "mkdir -p dist && cp -r src/* dist/",
+    "start": "node src/index.js"
+  },
+  "author": "Mahak Mor",
+  "license": "ISC",
+  "dependencies": {}
+}
