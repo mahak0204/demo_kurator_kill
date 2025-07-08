@@ -1,7 +1,6 @@
 name: Build and Package Legal Kill
  
 on:
-  workflow_dispatch: 
   push:
     branches:
       - release/sit
